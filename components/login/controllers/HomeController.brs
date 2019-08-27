@@ -7,5 +7,7 @@ function HomeView()
 end function
 
 function showField()
-	print m.homeView.homeInterface
+	if m.homeView.homeInterface = 0
+		LoginView()
+	end if
 end function
