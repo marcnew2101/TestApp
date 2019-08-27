@@ -4,7 +4,7 @@
 
 <component name="Home" extends="Group">
 	<interface>
-	    <field id="buttonIndex" type="integer" onChange="buttonIndex.buttonSelected" />
+	    <field id="homeInterface" type="integer" onChange="ButtonGroup.buttonSelected" />
 	</interface>
 	<children>
 		<ButtonGroup id="ButtonGroup">
