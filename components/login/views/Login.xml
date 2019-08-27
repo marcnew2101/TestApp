@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="Login" extends="Group">
+	<children>
+		<Rectangle 
+			id="rectangle"
+			width="200"
+			height="300"
+		/>
+	</children>
+	<!-- importing main handler -->
+    <script type="text/brightscript" uri="pkg:/components/login/views/Login.brs"/>
+</component>

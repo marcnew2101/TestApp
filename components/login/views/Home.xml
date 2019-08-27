@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="Home" extends="Group">
+	<interface>
+	    <field id="buttonIndex" type="integer" onChange="buttonIndex.buttonSelected" />
+	</interface>
+	<children>
+		<ButtonGroup id="ButtonGroup">
+			<Button id="login" text="Login"/>
+			<Button id="exit" text="Exit"/>
+		</ButtonGroup>
+	</children>
+	<!-- importing main handler -->
+    <script type="text/brightscript" uri="pkg:/components/login/views/Home.brs"/>
+</component>
