@@ -4,11 +4,9 @@
 
 <component name="Login" extends="Group">
 	<children>
-		<Rectangle 
-			id="rectangle"
-			width="200"
-			height="300"
-		/>
+		<Keyboard id="keyboard"></Keyboard>
+		<Label id="label"></Label>
+		<ButtonGroup id="buttongroup"></ButtonGroup>
 	</children>
 	<!-- importing main handler -->
     <script type="text/brightscript" uri="pkg:/components/login/views/Login.brs"/>

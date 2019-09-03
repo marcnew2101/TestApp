@@ -7,10 +7,41 @@
 	    <field id="homeInterface" type="integer" alias="ButtonGroup.buttonSelected" />
 	</interface>
 	<children>
-		<ButtonGroup id="ButtonGroup">
-			<Button id="login" text="Login"/>
-			<Button id="exit" text="Exit"/>
+		<ButtonGroup 
+			id="ButtonGroup"
+			minWidth="328" 
+			itemSpacings="[20, 0]" 
+			translation="[60,250]">
+			<Button 
+				id="login" 
+				text="Login" 
+				iconUri=""
+				focusedIconUri=""
+				textFont="font:LargeSystemFont"
+				focusedTextFont="font:LargeBoldSystemFont" />
+			<Button 
+				id="exit" 
+				text="Exit" 
+				iconUri=""
+				focusedIconUri=""
+				textFont="font:LargeSystemFont"
+				focusedTextFont="font:LargeBoldSystemFont" />
 		</ButtonGroup>
+		<Poster
+		  id="mainPoster"
+		  uri="pkg:/images/barley_main.jpg"
+		  width="0.0"
+		  height="0.0"
+		  translation="[410,115]" />
+		<Label
+		  id="mainLabel"
+		  height="100"
+		  width="0"
+		  font="font:LargeBoldSystemFont"
+		  text = "Barley Legal"
+		  horizAlign = "center"
+		  vertAlign = "center"
+		  translation="[450,520]" />
 	</children>
 	<!-- importing main handler -->
     <script type="text/brightscript" uri="pkg:/components/login/views/Home.brs"/>
