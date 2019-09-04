@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="Username" extends="Group">
+	<interface>
+	    <field id="usernameField" type="integer" alias="ButtonGroup.buttonSelected" />
+	    <field id="usernameEntered" type="string" alias="keyboard.text" />
+	</interface>
+	<children>
+		<Keyboard id="keyboard"></Keyboard>
+		<Label id="label"></Label>
+		<ButtonGroup id="buttongroup"></ButtonGroup>
+	</children>
+	<!-- importing main handler -->
+    <script type="text/brightscript" uri="pkg:/components/login/views/Username.brs"/>
+</component>

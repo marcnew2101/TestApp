@@ -27,7 +27,7 @@ sub OnButtonSelected(event as Object)
     selectedIndex = event.GetData()
     print selectedIndex
     if m.buttongroup.buttonSelected = 0 then
-    	LoginView()
+    	UsernameController()
     else if m.buttongroup.buttonSelected = 1 then
     	m.top.GetScene().exitChannel = true
     end if

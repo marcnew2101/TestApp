@@ -1,13 +1,17 @@
 function LoginView() as Object
     m.login = CreateObject("roSGNode", "Login")
-
+    m.login.observeField("loginInterface", "showField")
     m.top.ComponentController.CallFunc("show", {
         view: m.login
     })
 
 end function
 
-
+function showField()
+	if m.login.loginInterface = 0
+		print m.login.loginInterface
+	end if
+end function
 
 ' function LoginView() as Object
 '     m.keyboard = CreateObject("roSGNode", "Keyboard")
