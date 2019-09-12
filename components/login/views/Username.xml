@@ -4,13 +4,13 @@
 
 <component name="Username" extends="Group">
 	<interface>
-	    <field id="usernameField" type="integer" alias="ButtonGroup.buttonSelected" />
-	    <field id="usernameEntered" type="string" alias="keyboard.text" />
+	    <field id="usernameButtons" type="integer" alias="usernameKeyboard.buttonSelected" />
+	    <field id="usernameText" type="string" alias="usernameKeyboard.text" />
 	</interface>
 	<children>
-		<Keyboard id="keyboard"></Keyboard>
-		<Label id="label"></Label>
-		<ButtonGroup id="buttongroup"></ButtonGroup>
+		<KeyboardDialog id="usernameKeyboard" />
+		<!-- <Label id="usernameLabel" /> -->
+		<!-- <ButtonGroup id="buttongroup"></ButtonGroup> -->
 	</children>
 	<!-- importing main handler -->
     <script type="text/brightscript" uri="pkg:/components/login/views/Username.brs"/>
