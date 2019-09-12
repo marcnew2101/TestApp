@@ -1,60 +1,61 @@
-sub init()
-	m.keyboard = m.top.findNode("keyboard")
-	m.label = m.top.findNode("label")
-	m.buttongroup = m.top.findNode("buttongroup")
+function init()
+    m.usernameKeyboard = m.top.findNode("usernameKeyboard")
+    m.usernameKeyboard.title = "Enter Email Address"
+    m.usernameKeyboard.buttons = ["Next", "Back"]
 
-	keyboardArea = m.keyboard.boundingRect()
+    m.usernameKeyboard.keyboard.ObserveField("text", "OnChangeText")
+    m.usernameKeyboard.buttongroup.ObserveField("buttonSelected", "OnButtonSelected")
+    m.top.ObserveField("focusedChild", "OnChildFocused")
+end function
 
-    centerx = (1280 - keyboardArea.width) / 2
-    centery = (720 - keyboardArea.height) / 2
-
-    m.label.translation = [ centerx + 20, centery - 40 ]
-    m.keyboard.translation = [ centerx, centery ]
-    m.buttongroup.translation = [ centerx + 10, centery + 310 ]
-
-    m.label.SetFields({        
-        text: "Enter Username/E-mail"        
-        width: "0"
-  		font: "font:LargeBoldSystemFont"    
-    })
-
-    m.buttongroup.SetFields({        
-        buttons: ["Next"]
-        iconUri: ""
-        focusedIconUri: ""
-    })
-
-    m.keyboard.ObserveField("text", "OnChangeText")
-    m.buttongroup.ObserveField("buttonSelected", "OnButtonSelected")
-
+sub OnChildFocused()
+    if m.top.isInFocusChain() and not m.usernameKeyboard.isInFocusChain() then
+        m.usernameKeyboard.setFocus(true)
+    end if
 end sub
 
 sub OnChangeText()
-	print m.keyboard.text
+	print m.usernameKeyboard.keyboard.text
+    m.usernameKeyboard.close = true
+    'm.usernameKeyboard.visible = false
+    print m.usernameKeyboard
 end sub
 
-sub OnButtonSelected()
-    print "button selected"
-end sub
+' Back key and Options key handler
+' function onKeyEvent(key as String, press as Boolean) as Boolean
+'     handled = false
 
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    handled = false
-    if press then
-        if key = "down" and not m.keyboard.IsInFocusChain() then
-            m.keyboard.setFocus(true)
-            m.keyboard.getChild(0).getChild(0).jumpToItem = 0
-            handled = true
-        else if key = "down" and not m.buttongroup.IsInFocusChain() then
-            m.buttongroup.setFocus(true)
-            handled = true
-        else if key = "up" and not m.buttongroup.IsInFocusChain() then
-            m.buttongroup.setFocus(true)
-            handled = true
-        else if key = "up" and not m.keyboard.IsInFocusChain() then
-            m.keyboard.setFocus(true)
-            m.keyboard.getChild(0).getChild(0).jumpToItem = 36
-            handled = true
-        end if
-    end if
-    return handled
-end function
+'     if press then
+'         if key = "back"
+'             print "back key pressed"
+'             m.usernameKeyboard.close = true
+'             handled = true
+'         end if
+'     end if
+'     return handled
+' end function
+
+' function onKeyEvent(key as String, press as Boolean) as Boolean
+'     handled = false
+'     if press then
+'         if key = "back" then
+'             m.top.close = true
+'         end if
+'         if key = "down" and not m.usernameKeyboard.buttongroup.isInFocusChain() then
+'             m.usernameKeyboard.buttongroup.setFocus(true)
+'             handled = true
+'         else
+'             m.usernameKeyboard.keyboard.setFocus(true)
+'             handled = true
+'         end if
+
+'         if key = "up" and not m.usernameKeyboard.keyboard.hasFocus() then
+'             m.usernameKeyboard.keyboard.setFocus(true)
+'             handled = true
+'         else
+'             m.usernameKeyboard.buttongroup.setFocus(true)
+'             handled = true
+'         end if
+'     end if
+'     return handled
+' end function

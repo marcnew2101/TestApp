@@ -3,7 +3,7 @@
 sub Show(args as Object)
     m.buttongroup = CreateObject("roSGNode", "ButtonGroup")
     m.buttongroup.SetFields({
-        buttons: ["Login", "Exit"]
+        buttons: ["Log in with HardcoreGO Account", "Get Pairing Code", "Exit"]
         iconUri: ""
         focusedIconUri: ""
         translation: "[60, 250]"
@@ -13,9 +13,6 @@ sub Show(args as Object)
         focusedTextFont: "font:LargeBoldSystemFont"
     })
 
-    content = CreateObject("roSGNode", "ContentNode")
-
-    m.buttongroup.content = content
     m.buttongroup.ObserveField("buttonSelected", "OnButtonSelected")
 
     m.top.ComponentController.CallFunc("show", {
@@ -25,10 +22,12 @@ end sub
 
 sub OnButtonSelected(event as Object)
     selectedIndex = event.GetData()
-    print selectedIndex
-    if m.buttongroup.buttonSelected = 0 then
+
+    if selectedIndex = 0 then
     	UsernameController()
-    else if m.buttongroup.buttonSelected = 1 then
+    else if selectedIndex = 1 then
+        PairingController()
+    else if selectedIndex = 2 then
     	m.top.GetScene().exitChannel = true
     end if
 end sub

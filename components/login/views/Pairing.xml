@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="Pairing" extends="Group">
+	<interface>
+	    <field id="pairingField" type="integer" alias="ButtonGroup.buttonSelected" />
+	</interface>
+	<children>
+		<ButtonGroup id="buttongroup"></ButtonGroup>
+		<Label id="label"></Label>
+	</children>
+	<!-- importing main handler -->
+    <script type="text/brightscript" uri="pkg:/components/login/views/Pairing.brs"/>
+</component>

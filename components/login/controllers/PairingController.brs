@@ -1,15 +1,17 @@
-function LoginView() as Object
-    m.login = CreateObject("roSGNode", "Login")
-    m.login.observeField("loginInterface", "showField")
+function PairingController() as Object
+    m.pairing = CreateObject("roSGNode", "Pairing")
+    m.pairing.observeField("pairingInterface", "showPairing")
     m.top.ComponentController.CallFunc("show", {
-        view: m.login
+        view: m.pairing
     })
 
 end function
 
-function showField()
-	if m.login.loginInterface = 0
-		print m.login.loginInterface
+function showPairing()
+	selectedIndex = event.getdata(event as Object)
+
+	if m.pairing.pairingInterface = 0
+		print m.pairing.pairingInterface
 	end if
 end function
 
