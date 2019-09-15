@@ -4,12 +4,15 @@
 
 <component name="Username" extends="Group">
 	<interface>
-	    <field id="usernameButtons" type="integer" alias="usernameKeyboard.buttonSelected" />
-	    <field id="usernameText" type="string" alias="usernameKeyboard.text" />
+	    <field id="usernameButtonSelected" type="integer" alias="usernameButtonGroup.buttonSelected" />
+	    <field id="usernameTextEntered" type="string" alias="usernameKeyboard.text" />
+	    <field id="regexEmail" type="string" value="^[A-Za-z0-9_%+-]+(\.[A-Za-z0-9_%+-]+)*@([A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$" onChange="On_regexEmail"/>
 	</interface>
 	<children>
-		<Group id="container">
-			<KeyboardDialog id="usernameKeyboard" />
+			<Keyboard id="usernameKeyboard" />
+			<Label id="usernameLabel" />
+			<ButtonGroup id="usernameButtonGroup" />
+
 
 	        <FadingBackground
 	            id="backgroundImage"
@@ -20,19 +23,18 @@
 	            visible="false"
 	        />
 
-	        <Overhang id="overhang" showOptions="false" showClock="true" />
+	    <Overhang id="overhang" showOptions="false" showClock="true" />
 
-	        <LayoutGroup 
-	            translation="[640, 360]" 
-	            horizAlignment="center" 
-	            vertAlignment="center">
-	            <BusySpinner 
-	                id="spinner"
-	                control="start"
-	                visible="false"
-	            />
-	        </LayoutGroup>
-	    </Group>
+	    <LayoutGroup 
+	        translation="[640, 360]"
+	        horizAlignment="center"
+	        vertAlignment="center">
+	        <BusySpinner
+	            id="spinner"
+	            control="start"
+	            visible="false"
+	        />
+	    </LayoutGroup>
 	</children>
 	<!-- importing main handler -->
     <script type="text/brightscript" uri="pkg:/components/login/views/Username.brs"/>

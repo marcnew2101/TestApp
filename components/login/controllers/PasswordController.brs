@@ -1,12 +1,13 @@
 function PasswordController(username as String)
     m.password = CreateObject("roSGNode", "Password")
-    m.password.observeField("passwordButtons", "onPasswordButtons")
+    m.password.observeField("passwordButtonSelected", "onPasswordButtonSelected")
+    m.password.observeField("passwordTextEntered", "onPasswordTextEntered")
     m.top.ComponentController.CallFunc("show", {
         view: m.password
     })
 end function
 
-function onPasswordButtons(event as Object)
+function onPasswordButtonSelected(event as Object)
 	selectedIndex = event.getdata()
 
 	if selectedIndex = 0 then
@@ -15,4 +16,8 @@ function onPasswordButtons(event as Object)
     else if selectedIndex = 1 then
         m.password.close = true
 	end if
+end function
+
+function onPasswordTextEntered(event as Object)
+    print m.password.passwordTextEntered
 end function
